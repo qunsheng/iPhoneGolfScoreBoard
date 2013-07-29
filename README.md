@@ -1,4 +1,4 @@
 iPhoneGolfScoreBoard
 ====================
 
-iOs version of golf score board
+iOS version of golf score board

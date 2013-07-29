@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="css/jQuery/jquery.mobile-1.3.1.css" />
+	
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <title>Golf Scorecard</title>
+    </head>
+    <body>
+    	
+		<div data-role="page" id="start">
+			<div data-role="header" data-theme="b">
+				<div><h2>Golf Scores</h2></div>
+			</div>
+			<div data-role="content">
+				<div data-role="fieldcontain">
+					
+					<label for="course">Course:</label>
+					<input type="text" id="course" value=""  />
+					<br />
+					<label for="playername">Player:</label>
+					<input type="text" id="playername" value=""  />
+				
+					<fieldset data-role="controlgroup" data-type="horizontal">
+					    <legend>Tee:</legend>
+					    <input type="radio" name="tee-choice" id="tee-choice-blue" value="blue" checked="checked"  />
+					    <label for="tee-choice-blue">Blue</label>
+					    <input type="radio" name="tee-choice" id="tee-choice-white" value="white"  />
+					    <label for="tee-choice-white">White</label>	
+					    <input type="radio" name="tee-choice" id="tee-choice-red" value="red"  />
+					    <label for="tee-choice-red">Red</label>
+					</fieldset>
+	
+				</div>
+				<p><a id="letsPlay" href="#framePlay" data-role="button" data-transition="none">Play</a></p>	
+			</div>
+		</div>
+						
+		<div id="menu" data-role="popup">
+			<center>
+				<div id="holeLinks" data-role="fieldcontain">				
+					<a href="#framePlay" data-transition="none" >	
+						<img class="ball" src="img/h1.png" id="1">					
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h2.png"  id="2">			
+					</a>
+					<a href="#framePlay" data-transition="none" >
+						<img class="ball" src="img/h3.png" id="3">							 
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h4.png" id="4">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h5.png" id="5">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h6.png" id="6">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h7.png" id="7" >
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h8.png" id="8">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h9.png" id="9">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h10.png" id="10">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h11.png" id="11">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h12.png" id="12">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h13.png" id="13">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h14.png" id="14">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h15.png" id="15" >
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h16.png" id="16">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h17.png" id="17">
+					</a>
+					<a href="#framePlay" data-transition="none">
+						<img class="ball" src="img/h18.png" id="18">
+					</a>
+				</div>
+			</center>
+		</div>
+				
+		<div data-role="page" id="framePlay">
+			<div data-role="header" data-theme="b" data-backbtn="false">		
+				<a href="#menu"	data-role="button"	deata-rel="popup"	>Go To Hole</a>		
+				<div><h2>Golf Scoreboard</h2></div>
+			</div>
+	
+			<div data-role="content">
+				<center>
+						<img id="holeImg"  >
+						<br>
+						<h2>
+							<span id="holeTotal">0 </span> 
+							( <span id="holeScore">0</span> )
+						</h2>
+				</center>
+				
+				<div data-role="fieldcontain">
+	
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+						    <legend><h1>Par:</h1></legend>
+						    <input type="radio" name="par-choice" id="par-choice-3" value="3"   />
+						    <label for="par-choice-3">3</label>
+						    <input type="radio" name="par-choice" id="par-choice-4" value="4"   />
+						    <label for="par-choice-4">4</label>
+						    <input type="radio" name="par-choice" id="par-choice-5" value="5"   />
+						    <label for="par-choice-5">5</label>		
+						    <input type="radio" name="par-choice" id="par-choice-6" value="6"   />
+						    <label for="par-choice-6">6</label>
+						</fieldset>
+						
+				</div>	
+				<div data-role="fieldcontain">
+	
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+						    <legend><h1> Drive to: </h1></legend>			
+						    <input type="radio" name="drive-choice" id="drive-choice-fairway" value="F"   />
+						    <label for="drive-choice-fairway">Fairway</label>
+						    <input type="radio" name="drive-choice" id="drive-choice-left" value="L"   />
+						    <label for="drive-choice-left">Left</label>		
+						    <input type="radio" name="drive-choice" id="drive-choice-right" value="R"   />
+						    <label for="drive-choice-right">Right</label>	
+						</fieldset>
+					
+				</div>	
+				<div data-role="fieldcontain">
+	
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+						    <legend><h1>Strokes to green: </h1></legend>	 
+						    <input type="radio" name="to-green-choice" id="to-green-choice-1" value="1"  />
+						    <label for="to-green-choice-1">1</label>
+						    <input type="radio" name="to-green-choice" id="to-green-choice-2" value="2"  />
+						    <label for="to-green-choice-2">2</label>
+						    <input type="radio" name="to-green-choice" id="to-green-choice-3" value="3"  />
+						    <label for="to-green-choice-3">3</label>
+						    <input type="radio" name="to-green-choice" id="to-green-choice-4" value="4"  />
+						    <label for="to-green-choice-4">4</label>
+						    <input type="radio" name="to-green-choice" id="to-green-choice-5" value="5"  />
+						    <label for="to-green-choice-5">5</label>
+						    <input type="radio" name="to-green-choice" id="to-green-choice-6" value="6"  />
+						    <label for="to-green-choice-6">6</label>
+						</fieldset>
+								
+				</div>	
+				<div data-role="fieldcontain">
+	
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+						    <legend><h1>Putts:</h1> </legend>	
+						    <input type="radio" name="putts-choice" id="putts-choice-0" value="0"  />
+						    <label for="putts-choice-0">0</label> 
+						    <input type="radio" name="putts-choice" id="putts-choice-1" value="1"  />
+						     <label for="putts-choice-1">1</label>
+						    <input type="radio" name="putts-choice" id="putts-choice-2" value="2"  />
+						    <label for="putts-choice-2">2</label>
+						    <input type="radio" name="putts-choice" id="putts-choice-3" value="3"  />
+						    <label for="putts-choice-3">3</label>
+						    <input type="radio" name="putts-choice" id="putts-choice-4" value="4"  />
+						    <label for="putts-choice-4">4</label>
+						    <input type="radio" name="putts-choice" id="putts-choice-5" value="5"  />
+						    <label for="putts-choice-5">5</label>
+						</fieldset>
+						
+				</div>	
+				<div data-role="fieldcontain">
+	
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+						    <legend><h1>100 or less to green:</h1> </legend>	 
+						    <input type="radio" name="100-to-green-choice" id="100-to-green-choice-n" value="N"  checked="checked" />
+						    <label for="100-to-green-choice-n">N/A</label>
+						    
+						    <input type="radio" name="100-to-green-choice" id="100-to-green-choice-s" value="S"  />
+						    <label for="100-to-green-choice-s">OK</label>
+						    					    
+						    <input type="radio" name="100-to-green-choice" id="100-to-green-choice-fs" value="FS"  />
+						    <label for="100-to-green-choice-fs">Fail (Sand)</label>
+						    
+						    <input type="radio" name="100-to-green-choice" id="100-to-green-choice-fo" value="FO"  />
+						    <label for="100-to-green-choice-fo">Fail (Other)</label>   
+						</fieldset>		
+								
+				</div>	
+				<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+						    <legend><h1>Penalties: </h1></legend>					     
+						    <input type="radio" name="penalties-choice" id="penalties-choice-n" value="N" checked="checked"  />
+						    <label for="penalties-choice-n">No</label>			    		
+						    <input type="radio" name="penalties-choice" id="penalties-choice-y" value="Y"  />
+						    <label for="penalties-choice-y">Yes</label>				    		
+						</fieldset>		
+				</div>	
+				
+				<input type="hidden" value="xxxxxxxxxxxxxxxxxxxx" id="currentHoleNumber" />
+				
+				<center>		
+					<div data-role="controlgroup" data-type="horizontal">
+						<a data-role="button" data-icon="arrow-l" id="prevHole" data-theme="b">Previous</a>				
+						<a data-role="button" data-icon="star" id="submitHole" data-theme="b">Submit</a>				
+						<a data-role="button" data-icon="arrow-r" id="nextHole" data-theme="b">Next</a>					
+					</div>			
+				</center>	
+			</div>
+			
+			<div  data-role="footer" data-theme="b">
+				
+				<center>		
+					<div data-role="controlgroup" data-type="horizontal">
+						<a data-role="button" data-icon="star" id="first9PlayPage" href="#first9Page" data-transition="none">First 9</a>								
+						<a data-role="button" data-icon="star" id="back9PlayPage" href="#back9Page" data-transition="none">Back 9</a>						
+						<a data-role="button" data-icon="grid" id="summaryPlayPage" href="#summaryPage" data-transition="none">Summary</a>					
+					</div>			
+				</center>
+				
+			</div>			
+		</div>
+	
+		<div data-role="page" id="first9Page">		
+			<div data-role="header" data-theme="b">
+				<a href="#menu"	data-role="button"	deata-rel="popup"	>Go To Hole</a>
+				<div><h2>First 9 Hole Scores</h2></div>		
+			</div>
+			
+			<div data-role="content">				
+				<ul id="first9List" data-role="listview" data-inset="true">
+				    <li>
+				        <a  href="#framePlay" id="1" data-transition="none">		            	
+				            <img src="img/F1.jpg"   class="ui-li-icon">
+				            <span id="1HoleTotal"></span>
+				            <span class="ui-li-count" id="1HolePar">0</span>	            
+				        </a>
+				    </li>		    
+				    <li>
+				        <a  href="#framePlay" id="2" data-transition="none">         	
+				            <img src="img/F2.jpg"  class="ui-li-icon">     
+				            <span id="2HoleTotal"></span>
+				            <span class="ui-li-count" id="2HolePar">0</span>    
+				        </a>
+				    </li>	    
+				    <li>
+				        <a  href="#framePlay" id="3" data-transition="none">   	
+				            <img src="img/F3.jpg"  class="ui-li-icon">
+				            <span id="3HoleTotal"></span>
+				            <span class="ui-li-count" id="3HolePar">0</span>
+				            
+				        </a>
+				    </li>		    
+				    <li>
+				        <a  href="#framePlay" id="4" data-transition="none">            	
+				            <img src="img/F4.jpg"  class="ui-li-icon">   
+				            <span id="4HoleTotal"></span>
+				            <span class="ui-li-count" id="4HolePar">0</span>
+				        </a>
+				    </li>		    
+				    <li>
+				        <a  href="#framePlay" id="5" data-transition="none">
+				            	
+				            <img src="img/F5.jpg"  class="ui-li-icon">
+				           
+				            
+				            <span id="5HoleTotal"></span>
+				            <span class="ui-li-count" id="5HolePar">0</span>
+				            
+				        </a>
+				    </li>			    
+				    <li>
+				        <a  href="#framePlay" id="6" data-transition="none">	            	
+				            <img src="img/F6.jpg"  class="ui-li-icon">
+				            <span id="6HoleTotal"></span>
+				            <span class="ui-li-count" id="6HolePar">0</span>          
+				        </a>
+				    </li>		    
+				    <li>
+				        <a  href="#framePlay" id="7" data-transition="none">        	
+				            <img src="img/F7.jpg"  class="ui-li-icon">	            
+				            <span id="7HoleTotal"></span>
+				            <span class="ui-li-count" id="7HolePar">0</span>            
+				        </a>
+				    </li>		     
+				    <li>
+				        <a  href="#framePlay" id="8" data-transition="none"> 	
+				            <img src="img/F8.jpg"   class="ui-li-icon">    
+				            <span id="8HoleTotal"></span>
+				            <span class="ui-li-count" id="8HolePar">0</span>           
+				        </a>
+				    </li>			    
+				    <li>
+				        <a  href="#framePlay" id="9" data-transition="none">
+				            <img src="img/F9.jpg"   class="ui-li-icon">	            
+				            <span id="9HoleTotal"></span>
+				            <span class="ui-li-count" id="9HolePar">0</span>            
+				        </a>
+				    </li>			    
+				</ul>			
+			</div>
+	
+			<div  data-role="footer" data-theme="b">
+				<center>		
+					<div data-role="controlgroup" data-type="horizontal">				
+						<a data-role="button" data-icon="star" id="back9First9Page" href="#back9Page" data-transition="none">Back 9</a>									
+						<a data-role="button" data-icon="grid" id="summaryFirst9Page" href="#summaryPage" data-transition="none">Summary</a>										
+					</div>			
+				</center>
+			</div>			
+		</div>
+			
+		<div data-role="page" id="back9Page">	
+			<div data-role="header" data-theme="b">
+				<a href="#menu"	data-role="button"	deata-rel="popup"	>Go To Hole</a>
+				<div><h2>Back 9 Hole Scores</h2></div>		
+			</div>
+			
+			<div data-role="content">					
+				<ul id="back9List" data-role="listview" data-inset="true">
+				    <li>
+				        <a  href="#framePlay" id="10" data-transition="none">	            	
+				            <img src="img/F10.jpg"   class="ui-li-icon">
+				            <span id="10HoleTotal"></span>
+				            <span class="ui-li-count" id="10HolePar">0</span>           
+				        </a>
+				    </li>			    
+				    <li>
+				        <a  href="#framePlay" id="11" data-transition="none">          	
+				            <img src="img/F11.jpg"   class="ui-li-icon">	        
+				            <span id="11HoleTotal"></span>
+				            <span class="ui-li-count" id="11HolePar">0</span>            
+				        </a>
+				    </li>			    
+				    <li>
+				        <a  href="#framePlay" id="12" data-transition="none">        	
+				            <img src="img/F12.jpg"   class="ui-li-icon">          
+				            <span id="12HoleTotal"></span>
+				            <span class="ui-li-count" id="12HolePar">0</span>        
+				        </a>
+				    </li>		    
+				    <li>
+				        <a  href="#framePlay" id="13" data-transition="none">
+				            <img src="img/F13.jpg"   class="ui-li-icon">         
+				            <span id="13HoleTotal"></span>
+				            <span class="ui-li-count" id="13HolePar">0</span>           
+				        </a>
+				    </li>		    
+				    <li>
+				        <a  href="#framePlay" id="14" data-transition="none">     	
+				            <img src="img/F14.jpg"   class="ui-li-icon">       
+				            <span id="14HoleTotal"></span>
+				            <span class="ui-li-count" id="14HolePar">0</span>        
+				        </a>
+				    </li>	    
+				    <li>
+				        <a  href="#framePlay" id="15" data-transition="none">
+				            	
+				            <img src="img/F15.jpg"   class="ui-li-icon">
+				            
+				            <span id="15HoleTotal"></span>
+				            <span class="ui-li-count" id="15HolePar">0</span>
+				        </a>
+				    </li>		    
+				    <li>
+				        <a  href="#framePlay" id="16" data-transition="none">   	
+				            <img src="img/F16.jpg"   class="ui-li-icon">        
+				            <span id="16HoleTotal"></span>
+				            <span class="ui-li-count" id="16HolePar">0</span>     
+				        </a>
+				    </li>     
+				    <li>
+				        <a  href="#framePlay" id="17" data-transition="none">      	
+				            <img src="img/F17.jpg"   class="ui-li-icon">           
+				            <span id="17HoleTotal"></span>
+				            <span class="ui-li-count" id="17HolePar">0</span>	            
+				        </a>
+				    </li>		    
+				    <li>
+				        <a  href="#framePlay" id="18" data-transition="none">	           	
+				            <img src="img/F18.jpg"  class="ui-li-icon">	            
+				            <span id="18HoleTotal"></span>
+				            <span class="ui-li-count" id="18HolePar">0</span>      
+				        </a>
+				    </li>    
+				</ul>	
+			</div>
+	
+			<div  data-role="footer" data-theme="b">
+				<center>		
+					<div data-role="controlgroup" data-type="horizontal">				
+						<a data-role="button" data-icon="star" id="first9Back9Page" href="#first9Page" data-transition="none">First 9</a>					
+						<a data-role="button" data-icon="grid" id="summaryBack9Page" href="#summaryPage" data-transition="none">Summary</a>								
+					</div>			
+				</center>
+			</div>			
+		</div>
+	
+		<div data-role="page" id="summaryPage">	
+			<div data-role="header" data-theme="b">	
+				<a href="#menu"	data-role="button"	deata-rel="popup"	>Go To Hole</a>	
+				<div><h2>Summary</h2></div>
+			</div>
+	
+			<div data-role="content">
+	            <table id="score-table">
+	              <thead>
+	                <tr>
+	                  <th ><h1>Items</h1></th>             
+	                  <th ><h1>Statistics</h1> </th>
+	                </tr>
+	              </thead>
+	              <tbody>       
+	                <tr>		 
+	                  <td>Total Hole Played</td>
+	                  <td id="totalHolePlayedSum">0</td>
+	                </tr>                 
+	                <tr>		 
+	                  <td>Total Par</td>
+	                  <td id="totalParSum">0</td>
+	                </tr>           
+	                <tr>		 
+	                  <td>Total Number of Strokers</td>
+	                  <td id="totalNumSum" >0</td>
+	                </tr>                
+					<tr>		 
+	                  <td>Total Score</td>
+	                  <td id="scoreSum">0</td>
+	                </tr>
+					<tr>		 
+	                  <td>Total Putts</td>
+	                  <td id="totalPuttsSum">0</td>
+	                </tr>
+	                <tr>		 
+	                  <td>Average Putts</td>
+	                  <td id="avePutsSum">0%</td>
+	                </tr>        
+	                <tr>		 
+	                  <td>Drive to fairway</td>
+	                  <td id="aveFairwayHitSum">0%</td>
+	                </tr>              
+	                <tr>		 
+	                  <td>100 or Less to green</td>
+	                  <td id="ave100ToGreenSum">0%</td>
+	                </tr>     
+	                <tr>		 
+	                  <td>Holes with Penality</td>
+	                  <td id="avePenaltySum">0%</td>
+	                </tr>
+	              </tbody>
+	            </table>      
+			</div>
+			
+			<div  data-role="footer" data-theme="b">
+				<center>		
+					<div data-role="controlgroup" data-type="horizontal">
+						<a data-role="button" data-icon="star" id="first9SummaryPage" href="#first9Page" data-transition="none">First 9</a>									
+						<a data-role="button" data-icon="star" id="back9SummaryPage" href="#back9Page" data-transition="none">Back 9</a>								
+					</div>			
+				</center>
+			</div>			
+		</div>
+             
+        <script type="text/javascript" src="js/jQuery/jquery.js"></script>
+             
+        <script type="text/javascript" src="js/jQuery/jquery.mobile-1.3.1.js"></script>
+             
+        <script type="text/javascript" src="js/jQuery/pubsub.js"></script>
+	
+	<!--
+        <script type="text/javascript" src="cordova.js"></script>
+       -->
+        <script type="text/javascript" src="js/golf.js"></script>
+        
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <script type="text/javascript">
+            //app.initialize();
+            app.initGolfPackages();
+        </script>
+    </body>
+</html>
